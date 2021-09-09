@@ -33,7 +33,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -43,7 +42,38 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
         ),
         body: Column(
-          children: [],
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: double.infinity,
+              child: Card(
+                child: Text('CHART'),
+                color: Colors.blue,
+                elevation: 5,
+              ),
+            ),
+            Column(
+              children: transactions.map((tx) {
+                return Card(
+                  child: Row(
+                    children: [
+                      Text(
+                        tx.amount.toString(),
+                      ),
+                      Column(
+                        children: [
+                          Text(tx.itemName),
+                          Text(
+                            tx.date.toString(),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                );
+              }).toList(),
+            ),
+          ],
         ),
       ),
     );
