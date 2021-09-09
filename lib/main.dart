@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     Transaction(
       id: 't1',
       itemName: 'Shoes',
-      amount: 2399.0,
+      amount: 3499.0,
       date: DateTime.now(),
     ),
     Transaction(
@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
     ),
     Transaction(
       id: 't3',
-      itemName: 'Macbook',
-      amount: 82000.0,
+      itemName: 'Jeans',
+      amount: 1689.0,
       date: DateTime.now(),
     ),
   ];
@@ -57,14 +57,42 @@ class MyApp extends StatelessWidget {
                 return Card(
                   child: Row(
                     children: [
-                      Text(
-                        tx.amount.toString(),
+                      Container(
+                        padding: EdgeInsets.all(10.0),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.purple,
+                            width: 2,
+                          ),
+                        ),
+                        margin: EdgeInsets.symmetric(
+                          vertical: 10,
+                          horizontal: 15,
+                        ),
+                        child: Text(
+                          tx.amount.toString(),
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.purple,
+                          ),
+                        ),
                       ),
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(tx.itemName),
+                          Text(
+                            tx.itemName,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          ),
                           Text(
                             tx.date.toString(),
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
                           ),
                         ],
                       ),
